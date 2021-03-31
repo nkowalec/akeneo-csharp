@@ -182,5 +182,13 @@ namespace Akeneo
 				Stream = await response.Content.ReadAsStreamAsync()
 			};
 		}
+
+		public async Task<PaginationResult<T>> GetPageAsync<T>(string pageLink)
+		{
+			var response = await GetAsync(pageLink);
+			var result = await response.Content.ReadAsJsonAsync<PaginationResult<T>>();
+			result.Code = response.StatusCode;
+			return result;
+		}
 	}
 }

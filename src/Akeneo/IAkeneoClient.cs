@@ -74,5 +74,6 @@ namespace Akeneo
 		Task<MediaDownload> DownloadAsync(string mediaCode, CancellationToken ct = default(CancellationToken));
 		Task<PaginationResult<TModel>> SearchAsync<TModel>(IEnumerable<Criteria> criterias, CancellationToken ct = default(CancellationToken)) where TModel : ModelBase;
 		Task<PaginationResult<TModel>> FilterAsync<TModel>(string queryString, CancellationToken ct = default(CancellationToken)) where TModel : ModelBase;
+		Task<PaginationResult<T>> GetPageAsync<T>(string pageLink);
 	}
 }

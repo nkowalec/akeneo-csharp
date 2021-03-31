@@ -18,10 +18,6 @@ namespace Akeneo.Serialization
 		{
 			if (reader.TokenType == JsonToken.String)
 			{
-				if (float.TryParse((string)reader.Value, out float number))
-				{
-					return number;
-				}
 				return reader.Value;
 			}
 
