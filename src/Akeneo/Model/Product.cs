@@ -30,10 +30,6 @@ namespace Akeneo.Model
 		/// </summary>
 		public List<string> Groups { get; set; }
 
-		/// <summary>
-		/// Code of the variant group in which the product is 
-		/// </summary>
-		public string VariantGroup { get; set; }
 
 		/// <summary>
 		///  Product attributes values
