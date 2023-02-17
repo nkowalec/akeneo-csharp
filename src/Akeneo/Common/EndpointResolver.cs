@@ -116,7 +116,15 @@ namespace Akeneo.Common
 				{
 					return Endpoints.Locale;
 				}
-				throw new NotSupportedException($"Unable to find API endpoint for type {modelType.FullName}");
+
+				var endpointProp = type.GetProperty("Endpoint", BindingFlags.Public | BindingFlags.Static);
+				if(endpointProp != null)
+				{
+					var endpoint = (string)endpointProp.GetValue(null);
+					if (!String.IsNullOrEmpty(endpoint)) return endpoint;
+				}
+
+                throw new NotSupportedException($"Unable to find API endpoint for type {modelType.FullName}");
 			});
 		}
 
